@@ -16,6 +16,6 @@ def CommonMembersPercentage(request):
         guild2 = Discord_Guild.objects.get(guild_uid=guild_id2)
         guild1_user_cnt = len(guild1.discord_user_set.all());
         common_count = len(guild1.discord_user_set.all() & guild2.discord_user_set.all())
-        return HttpResponse((common_count/guild1_user_cnt)*100)
+        return HttpResponse(str((common_count/guild1_user_cnt)*100)+"%")
     except:
         return HttpResponse("something went wrong")
